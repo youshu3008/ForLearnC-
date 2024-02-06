@@ -1,10 +1,11 @@
 #include <iostream>
 #include <unordered_map>
-// using namespace std;
+
+using namespace std;
 class Solution {
 private:
-    unordered_map<char, int> symbolValues = {
-        {'I', 1},
+    unordered_map<char,int>dic{
+         {'I', 1},
         {'V', 5},
         {'X', 10},
         {'L', 50},
@@ -12,23 +13,24 @@ private:
         {'D', 500},
         {'M', 1000},
     };
-
 public:
     int romanToInt(string s) {
-        int ans = 0;
         int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            int value = symbolValues[s[i]];
-            cout << s[i]<< endl;
-            cout << symbolValues[s[i]]<< endl;
-            if (i < n - 1 && value < symbolValues[s[i + 1]]) {
-                ans -= value;
-            } else {
-                ans += value;
+        int res = 0;
+        for(int i=0;i<n;++i){
+            if (dic[s[i]] < dic[s[i+1]] && i < n - 1) {
+                res = res - dic[s[i]];
+            } else{
+                res = res + dic[s[i]];
             }
+            // cout << s[i] << endl;
         }
-        return ans;
+
+        return res;
     }
+
+
+
 };
 
 
