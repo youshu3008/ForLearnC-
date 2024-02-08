@@ -1,25 +1,48 @@
 #include <iostream>
-#include <unordered_map>
+#include <vector>
 
 using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        if(!strs.size()){
+        if (!strs.size()) {
             return "";
         }
-            
+        string prefix = strs[0];
+        int count = strs.size();
+        for (int i = 1; i < count; ++i) {
+            prefix = longestCommonPrefix(prefix, strs[i]);
+            if (!prefix.size()) {
+                break;
+            }
+        }
+        return prefix;
+    }
+
+    string longestCommonPrefix(const string& str1, const string& str2) {
+        int length = min(str1.size(), str2.size());
+        int index = 0;
+        while (index < length && str1[index] == str2[index]) {
+            ++index;
+        }
+        return str1.substr(0, index);
     }
 };
+ 
 
 
 
 int main() {
     Solution solution;
-    
-    // 测试一些例子
-    cout << solution.longestCommonPrefix("strs = ["flower","flow","flight"]") << endl;  // 输出: "fl"
-    cout << solution.longestCommonPrefix("strs = ["dog","racecar","car"]") << endl; // 输出: 输入不存在公共前缀。
+
+    // 创建字符串向量
+    vector<string> input1 = {"flower", "flow", "flight"};
+    vector<string> input2 = {"dog", "racecar", "car"};
+
+    // 测试示例
+    cout << solution.longestCommonPrefix(input1) << endl;  // Output: "fl"
+    cout << solution.longestCommonPrefix(input2) << endl;  // Output: ""
+
     system("pause");
     return 0;
 }
