@@ -27,8 +27,7 @@ public:
         }
         return str1.substr(0, index);
     }
-};
- 
+}
 
 
 
@@ -37,7 +36,7 @@ int main() {
 
     // 创建字符串向量
     vector<string> input1 = {"flower", "flow", "flight"};
-    vector<string> input2 = {"dog", "racecar", "car"};
+    vector<string> input2 = {"flower", "aflower", "afyflow"};
 
     // 测试示例
     cout << solution.longestCommonPrefix(input1) << endl;  // Output: "fl"
