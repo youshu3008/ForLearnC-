@@ -46,20 +46,58 @@ struct ListNode {
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode *dummy = new ListNode(0), *cur = dummy;
-        int sum = 0;
-        while (l1 || l2 || sum)
-        {
-            if(l1) sum += l1->val, l1 = l1->next;
-            if(l2) sum += l2->val, l2 = l2->next;
-            cur->next = new ListNode(sum%10);
-            cur = cur->next;
-            sum/=10;
-        }
-        return dummy->next;
-
+       ListNode *lingshi = new ListNode(0),*zhizhen = lingshi;
+       int sum=0;
+       while (l1 || l2 || sum)
+       {
+        /* code */
+        if(l1) sum+=l1->val,l1=l1->next;
+        if(l2) sum+=l2->val,l2=l2->next;
+        zhizhen->next = new ListNode(sum%10);
+        sum/=10;
+        zhizhen = zhizhen->next;
+       }
+       return lingshi->next;
+       
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+//         // 定义虚拟头节点 边界判断， 定义一个虚拟指针，指向当前头节点
+//         ListNode *dummy = new ListNode(0), *cur = dummy;  
+//         int sum = 0;
+//         while (l1 || l2 || sum)
+//         {
+//             if(l1) sum += l1->val, l1 = l1->next;
+//             if(l2) sum += l2->val, l2 = l2->next;
+//             cur->next = new ListNode(sum%10);
+            
+//             cur = cur->next;
+//             cout << cur->val << endl;
+//             sum/=10;
+//         }
+//         return dummy->next;
+
+//     }
+// };
 
 int main() {
     Solution solution;
