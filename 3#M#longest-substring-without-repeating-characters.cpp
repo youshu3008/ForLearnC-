@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-// 滑动窗口题
+
 using namespace std;
+
+
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -13,8 +15,6 @@ public:
         // i 是窗口右边界， j 是窗口左边界， 
         for (int i = 0, j = 0; i < s.length(); i++)
         {
-            /* code */
-            cout << pos[s[i]] + 1 << endl;
             // 更新窗口左边界的值： 左边界的值就是当前左边界和当前字符上一次出现位置的下一个位置的最大值
             j = max(j,pos[s[i]] + 1);
             // 更新答案，当前窗口的长度
