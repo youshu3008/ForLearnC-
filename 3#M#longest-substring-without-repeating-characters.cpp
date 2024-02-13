@@ -1,71 +1,75 @@
 #include <iostream>
-
+#include <vector>
+#include <unordered_map>
+// 滑动窗口题
 using namespace std;
-// class Solution {
-// public:
-//     int lengthOfLongestSubstring(string s) {
-//         int len = s.length(),int i=0;
-//         if(len==0) return false;
-//         while (i<len)
-//         {
-//             /* code */
-//             for (size_t j = 0; j < len-i; j++)
-//             {
-//                 /* code */
-//                 if(s[j]!=)
-//             }
-            
-//             string res = s.substr(i,k);
-//         }
-//         return res.size();
-//     }
-// };
-
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        //定义两个游标,还有长度,与结果,均初始化为0
-        int start(0),end(0),length(0),result(0);
-        //只要end<字符串大小
-        while(end<s.size())
+        // 创建一个数组储存每个字符上一次出现的位置
+        vector<int> pos(128,-1);
+        // 定义结果变量 值为0
+        int ans = 0;
+        // i 是窗口右边界， j 是窗口左边界， 
+        for (int i = 0, j = 0; i < s.length(); i++)
         {
-            //该注释错误		//暂存首个字符char,
-            //其实应该是暂存end所指向的那个值,到时候会跟index所指向的值比较
-            char tempChar=s[end];
-            //定义index,它只用于改变start的指向一般为index+1
-            //因为index所处的与end的值相等,则没有统计的必要了
-            //for循环只用来判断是否相等
-            //
-            for(int index=start;index<end;index++)
-            {
-                //判断是否出现重复字符串
-                if(tempChar==s[index])
-                {
-                    //start++;//这是错误的哦,没有优化呢
-                    //如果出现,则将start跳过重复字符index指向的下一字符
-                    start=index+1;
-                    //保存长度
-                    length=end-start;
-                    /////////
-                    //千万注意,如果相等,则该判断应该结束了
-                    break;
-                }
-            }
-            //此时,end向后移动,每一一次,长度+1
-            end++;
-            length++;
-            //返回更新后的length,如果更大,则为它
-            result=max(result,length);
+            /* code */
+            cout << pos[s[i]] + 1 << endl;
+            // 更新窗口左边界的值： 左边界的值就是当前左边界和当前字符上一次出现位置的下一个位置的最大值
+            j = max(j,pos[s[i]] + 1);
+            // 更新答案，当前窗口的长度
+            ans = max(ans,i-j+1);
+            // 存储当前字符的位置
+            pos[s[i]] = i;
         }
-        return result;
+        return ans;
+        
     }
 };
+
+// class Solution {
+// public:
+//     int lengthOfLongestSubstring(string s) {
+//         //1. 确定维护变量：存储字符个数的哈希表
+//         unordered_map<char,int> m;
+//         int max_len=0;
+//         //2. 定义滑动窗口的边界，开始滑动窗口
+//         int n=s.size();
+//         int left=0,right=0;
+//         while (right<n)
+//         {
+//             //3. 合法更新：哈希表存储字符的更新，字符放到哈希表中
+//             m[s[right]]++;
+//             if (right-left+1==m.size())
+//             {
+//                 max_len=max(max_len,right-left+1);
+//             }
+//             //4. 非法更新：窗口的长度小于哈希表的长度
+//             //想象一下：哈希表存储每个字符，如果遇到相同的字符则长度不变，但是窗口的长度会变，因此就造成了窗口里有重复的单词，
+//             //非法了，需要更新窗口的左边界，必要时删除此字符
+//             while (right-left+1>m.size())
+//             {
+//                 m[s[left]]--;
+//                 if (m[s[left]]==0)
+//                 {
+//                     m.erase(s[left]);
+//                 }
+//                 left++;
+//             }
+//             right++;
+//         }
+//         //5. 返回结果
+//         return max_len;
+//     }
+// };
+
+
 
 int main() {
     Solution solution;
 
     // 创建字符串向量
-    string input1 = "abcabcbb";
+    string input1 = "abcbacbb"; //abcabcbb
     string input2 = "bbbbb";
 
     // 测试示例
