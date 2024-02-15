@@ -3,8 +3,6 @@
 #include <unordered_map>
 
 using namespace std;
-
-
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -12,15 +10,15 @@ public:
         vector<int> pos(128,-1);
         // 定义结果变量 值为0
         int ans = 0;
-        // i 是窗口右边界， j 是窗口左边界， 
-        for (int i = 0, j = 0; i < s.length(); i++)
+        // right 是窗口右边界， left 是窗口左边界， 
+        for (int right = 0, left = 0; right < s.length(); right++)
         {
             // 更新窗口左边界的值： 左边界的值就是当前左边界和当前字符上一次出现位置的下一个位置的最大值
-            j = max(j,pos[s[i]] + 1);
+            left = max(left,pos[s[right]] + 1);
             // 更新答案，当前窗口的长度
-            ans = max(ans,i-j+1);
+            ans = max(ans,right-left+1);
             // 存储当前字符的位置
-            pos[s[i]] = i;
+            pos[s[right]] = right;
         }
         return ans;
         
@@ -62,7 +60,6 @@ public:
 //         return max_len;
 //     }
 // };
-
 
 
 int main() {

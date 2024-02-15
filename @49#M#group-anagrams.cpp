@@ -26,7 +26,6 @@ public:
         for (auto it = record.begin(); it != record.end(); it++) {  
             ans.push_back(it->second); // it->second 是与当前键相关联的向量  
         }  
-          
         // 返回结果向量  
         return ans;  
     }  
