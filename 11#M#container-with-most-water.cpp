@@ -22,6 +22,8 @@ using namespace std;
 //     }
 // };
 
+// 思路：双指针，宽度变小的时候：总是替换最小的高度，
+// 高度变大有可能乘积变大；如果替换掉最大的高度，乘积一定变小。
 class Solution {
 public:
     int maxArea(vector<int>& height) {
