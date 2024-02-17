@@ -1,20 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <algorithm>
-#include <unordered_set>
+#include <algorithm>  // 包含此头文件
+#include <queue>
 
 using namespace std;
 
-
 struct TreeNode {
-     int val;
-     TreeNode *left;
-     TreeNode *right;
-     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- };
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+};
 
 class Solution {
 public:
@@ -24,30 +22,33 @@ public:
         if (root) q.push(root);
         bool rev = false;
         while (q.size()) {
-            int sz = q.size();
+            int cnt = q.size();
             vector<int> tmp;
-            while (sz--) {
+            while (cnt--) {
                 auto cur = q.front(); q.pop();
                 tmp.push_back(cur->val);
                 if (cur->left) q.push(cur->left);
                 if (cur->right) q.push(cur->right);
             }
-            if (rev) ranges::reverse(tmp);
+            if (rev) {
+                // 将 std::reverse 放在 std 命名空间下
+                std::reverse(tmp.begin(), tmp.end());
+            }
             ans.push_back(tmp);
             rev ^= 1;
         }
         return ans;
     }
 };
-
-
 int main() {
      Solution solution;
 
     // 创建字符串向量
-    vector<int> input1 = {3,9,20,null,null,15,7};
-    vector<int> input2 = {1};
-    vector<int> input3 = {};
+    TreeNode* input1 = new TreeNode(3,
+        new TreeNode(9),
+        new TreeNode(20, new TreeNode(15), new TreeNode(7)));  // [[3],[9,20],[15,7]]
+    TreeNode* input2 = new TreeNode(1);
+    TreeNode* input3 = nullptr;
 
     // 测试示例
     vector<vector<int>> output1 = solution.zigzagLevelOrder(input1);
