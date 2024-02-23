@@ -7,27 +7,27 @@ using namespace std;
 
 
 // 时间复杂度O(n)
-// class Solution {
-// public:
-//     int trap(vector<int>& height) {
-//         int len = height.size(), ans = 0;
-//         if (len < 2) return ans;
-//         int l = 0, r = len - 1, lmax = 0, rmax = 0;
-//         while (l < r)
-//         {
-//             lmax = max(lmax, height[l]);
-//             rmax = max(rmax, height[r]);
-//             if (lmax < rmax) {
-//                 ans += lmax - height[l];
-//                 l++;
-//             } else {
-//                 ans += rmax - height[r];
-//                 r--;
-//             }
-//         }
-//         return ans;
-//     }
-// };
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int len = height.size(), ans = 0;
+        if (len < 2) return ans;
+        int l = 0, r = len - 1, lmax = 0, rmax = 0;
+        while (l < r)
+        {
+            lmax = max(lmax, height[l]);
+            rmax = max(rmax, height[r]);
+            if (lmax < rmax) {
+                ans += lmax - height[l];
+                l++;
+            } else {
+                ans += rmax - height[r];
+                r--;
+            }
+        }
+        return ans;
+    }
+};
 
 // 时间复杂度O(n^2)
 // class Solution {
@@ -53,35 +53,32 @@ using namespace std;
 //     }
 // };
 
-class Solution {
-public:
-    int trap(vector<int>& height) {
-        int len = height.size();
-        int ans = 0, water = 0;
-        if (len < 2) return ans;
-        vector<int> lmax(len, 0);
-        vector<int> rmax(len, 0);
-
-        // 计算每个位置的左侧最高柱
-        lmax[0] = height[0];
-        for (int i = 1; i < len; i++) {
-            lmax[i] = max(lmax[i - 1], height[i]);
-        }
-
-        // 计算每个位置的右侧最高柱
-        rmax[len - 1] = height[len - 1];
-        for (int i = len - 2; i >= 0; i--) {
-            rmax[i] = max(rmax[i + 1], height[i]);
-        }
-
-        // 计算每个位置能容纳的雨水量并累加到答案中
-        for (int i = 0; i < len; i++) {
-            water = min(lmax[i], rmax[i]) - height[i];
-            ans += water;
-        }
-        return ans;
-    }
-};
+// class Solution {
+// public:
+//     int trap(vector<int>& height) {
+//         int len = height.size();
+//         int ans = 0, water = 0;
+//         if (len < 2) return ans;
+//         vector<int> lmax(len, 0);
+//         vector<int> rmax(len, 0);
+//         // 计算每个位置的左侧最高柱
+//         lmax[0] = height[0];
+//         for (int i = 1; i < len; i++) {
+//             lmax[i] = max(lmax[i - 1], height[i]);
+//         }
+//         // 计算每个位置的右侧最高柱
+//         rmax[len - 1] = height[len - 1];
+//         for (int i = len - 2; i >= 0; i--) {
+//             rmax[i] = max(rmax[i + 1], height[i]);
+//         }
+//         // 计算每个位置能容纳的雨水量并累加到答案中
+//         for (int i = 0; i < len; i++) {
+//             water = min(lmax[i], rmax[i]) - height[i];
+//             ans += water;
+//         }
+//         return ans;
+//     }
+// };
 
 int main() {
      Solution solution;
