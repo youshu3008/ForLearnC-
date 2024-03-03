@@ -1,3 +1,0 @@
-E:\QT\QT6.6.0\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\move-zeroes.dir/objects.a
-E:\User\codeConfiguration\MinGW\bin\ar.exe qc CMakeFiles\move-zeroes.dir/objects.a @CMakeFiles\move-zeroes.dir\objects1.rsp
-E:\User\codeConfiguration\MinGW\bin\c++.exe -Wl,--whole-archive CMakeFiles\move-zeroes.dir/objects.a -Wl,--no-whole-archive -o move-zeroes.exe -Wl,--out-implib,libmove-zeroes.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\move-zeroes.dir\linkLibs.rsp

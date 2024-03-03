@@ -1,0 +1,3 @@
+D:/youshu/USTB/learning/Forc++/OpencvForCplusplus/build/CMakeFiles/opencvtest.dir
+D:/youshu/USTB/learning/Forc++/OpencvForCplusplus/build/CMakeFiles/edit_cache.dir
+D:/youshu/USTB/learning/Forc++/OpencvForCplusplus/build/CMakeFiles/rebuild_cache.dir

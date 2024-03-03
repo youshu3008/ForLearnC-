@@ -1,3 +1,0 @@
-D:/youshu/USTB/learning/Forc++/build/CMakeFiles/move-zeroes.dir
-D:/youshu/USTB/learning/Forc++/build/CMakeFiles/edit_cache.dir
-D:/youshu/USTB/learning/Forc++/build/CMakeFiles/rebuild_cache.dir

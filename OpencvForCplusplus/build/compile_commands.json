@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/youshu/USTB/learning/Forc++/OpencvForCplusplus/build",
+  "command": "E:\\User\\codeConfiguration\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\opencvtest.dir\\opencvtest.cpp.obj -c D:\\youshu\\USTB\\learning\\Forc++\\OpencvForCplusplus\\opencvtest.cpp",
+  "file": "D:/youshu/USTB/learning/Forc++/OpencvForCplusplus/opencvtest.cpp",
+  "output": "CMakeFiles/opencvtest.dir/opencvtest.cpp.obj"
+}
+]

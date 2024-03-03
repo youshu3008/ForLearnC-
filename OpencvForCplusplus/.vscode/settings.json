@@ -1,0 +1,8 @@
+{
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "files.associations": {
+    "*.cpp": "cpp",
+    "iostream": "cpp"
+  },
+  "C_Cpp.default.compilerPath": "E:\\User\\codeConfiguration\\MinGW\\bin\\gcc.exe"
+}

@@ -1,0 +1,3 @@
+E:\QT\QT6.6.0\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\opencvtest.dir/objects.a
+E:\User\codeConfiguration\MinGW\bin\ar.exe qc CMakeFiles\opencvtest.dir/objects.a @CMakeFiles\opencvtest.dir\objects1.rsp
+E:\User\codeConfiguration\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\opencvtest.dir/objects.a -Wl,--no-whole-archive -o opencvtest.exe -Wl,--out-implib,libopencvtest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\opencvtest.dir\linkLibs.rsp
