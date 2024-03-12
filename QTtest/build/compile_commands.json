@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/youshu/USTB/learning/Forc++/QTtest/build",
+  "command": "E:\\QT\\QT6.6.0\\Tools\\mingw1120_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/test001.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test001.dir\\test001_autogen\\mocs_compilation.cpp.obj -c D:\\youshu\\USTB\\learning\\Forc++\\QTtest\\build\\test001_autogen\\mocs_compilation.cpp",
+  "file": "D:/youshu/USTB/learning/Forc++/QTtest/build/test001_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/test001.dir/test001_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "D:/youshu/USTB/learning/Forc++/QTtest/build",
+  "command": "E:\\QT\\QT6.6.0\\Tools\\mingw1120_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/test001.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test001.dir\\src\\main.cpp.obj -c D:\\youshu\\USTB\\learning\\Forc++\\QTtest\\src\\main.cpp",
+  "file": "D:/youshu/USTB/learning/Forc++/QTtest/src/main.cpp",
+  "output": "CMakeFiles/test001.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/youshu/USTB/learning/Forc++/QTtest/build",
+  "command": "E:\\QT\\QT6.6.0\\Tools\\mingw1120_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/test001.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test001.dir\\src\\test001.cpp.obj -c D:\\youshu\\USTB\\learning\\Forc++\\QTtest\\src\\test001.cpp",
+  "file": "D:/youshu/USTB/learning/Forc++/QTtest/src/test001.cpp",
+  "output": "CMakeFiles/test001.dir/src/test001.cpp.obj"
+}
+]

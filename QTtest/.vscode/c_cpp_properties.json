@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "windows-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "e:/QT/QT6.6.0/6.6.2/mingw_64",
+                "E:/QT/QT6.6.0/6.6.2/mingw_64/include/QtWidgets",
+                "E:/QT/QT6.6.0/6.6.2/mingw_64/include",
+                "E:/QT/QT6.6.0/6.6.2/mingw_64/include/QtCore"
+            ],
+            "cStandard": "${default}",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerArgs": [
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
