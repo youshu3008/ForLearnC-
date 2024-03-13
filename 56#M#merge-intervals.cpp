@@ -8,9 +8,8 @@ class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
     // 按照区间起始位置进行排序
-    sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
-        return a[0] < b[0];
-    });
+
+    sort(intervals.begin(), intervals.end(), Solution::cmp_sort);
 
     vector<vector<int>> mergedIntervals;
     for (const vector<int>& interval : intervals) {
@@ -26,7 +25,12 @@ public:
 
     return mergedIntervals;
 }
+private:
+    static bool cmp_sort(const vector<int>& a, const vector<int>& b) {
+        return a[0] < b[0];
+    }
 };
+
 
 
 int main() {

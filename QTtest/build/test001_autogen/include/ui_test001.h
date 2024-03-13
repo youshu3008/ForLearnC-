@@ -64,7 +64,7 @@ public:
         test001->setWindowTitle(QCoreApplication::translate("test001", "test001", nullptr));
         countdownLabel->setText(QCoreApplication::translate("test001", "\345\200\222\350\256\241\346\227\266\357\274\232", nullptr));
         pushButton1->setText(QCoreApplication::translate("test001", "\345\220\257\345\212\250\345\200\222\350\256\241\346\227\266", nullptr));
-        menu->setTitle(QCoreApplication::translate("test001", "youshu", nullptr));
+        menu->setTitle(QCoreApplication::translate("test001", "doudou", nullptr));
     } // retranslateUi
 
 };
