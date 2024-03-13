@@ -1,7 +1,7 @@
 #include "test001.h"  // 包含 test001 类的头文件
 
 #include <QApplication>  // 包含 Qt 应用程序类的头文件
-#pragma comment(lib, "user32.lib")  // 添加对 user32.lib 库的链接
+// #pragma comment(lib, "user32.lib")  // 添加对 user32.lib 库的链接
 
 int main(int argc, char *argv[])
 {

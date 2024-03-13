@@ -4,8 +4,7 @@
 #include <QTimer>  // 包含 QTimer 类的头文件
 
 test001::test001(QWidget* parent)
-    : QMainWindow(parent)
-    , ui(new Ui_test001)  // 在堆上创建一个 Ui_test001 对象实例并赋值给 ui 指针
+    : QMainWindow(parent), ui(new Ui_test001)  // 在堆上创建一个 Ui_test001 对象实例并赋值给 ui 指针
 {
     ui->setupUi(this);  // 设置当前窗口的 UI
 
@@ -27,7 +26,7 @@ void test001::updateCountdown()
         ui->countdownLabel->setText("倒计时：" + QString::number(remainingTime) + "秒");  // 更新倒计时标签的文本
     } else {
         countdownTimer->stop();  // 停止计时器
-        QMessageBox::information(this, "时间到", "时间到");  // 弹出消息框显示时间到达的信息
+        QMessageBox::information(this, "提醒", "时间到");  // 弹出消息框显示时间到达的信息
     }
 }
 

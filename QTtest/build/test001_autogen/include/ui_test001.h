@@ -34,7 +34,7 @@ public:
     {
         if (test001->objectName().isEmpty())
             test001->setObjectName("test001");
-        test001->resize(102, 127);
+        test001->resize(177, 142);
         countdownLabel = new QLabel(test001);
         countdownLabel->setObjectName("countdownLabel");
         countdownLabel->setTextFormat(Qt::AutoText);
@@ -44,7 +44,7 @@ public:
         test001->setCentralWidget(countdownLabel);
         menubar = new QMenuBar(test001);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 102, 22));
+        menubar->setGeometry(QRect(0, 0, 177, 21));
         menu = new QMenu(menubar);
         menu->setObjectName("menu");
         test001->setMenuBar(menubar);
