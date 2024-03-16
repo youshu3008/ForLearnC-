@@ -27,6 +27,29 @@ public:
         return answer;
     }
 };
+
+// class Solution {
+// public:
+//     vector<int> productExceptSelf(vector<int>& nums) {
+//         vector<int> answer;
+//         int linshi = 1;
+//         for(int i = 0,j = 0;i < nums.size(); ++i,j=0,linshi = 1){
+//             int Prefix = 1;
+//             while(j < nums.size()){
+//                 if(j != i){
+//                     linshi *= nums[j++];
+//                 }else{
+//                     j++;
+//                     continue;
+//                 }
+//             }
+//             answer.push_back(linshi);
+//         }
+//         return answer;
+//     }
+// };
+
+
 /*
 1 2 3 4 
 1 1 1 1
