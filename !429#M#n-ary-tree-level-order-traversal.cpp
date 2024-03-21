@@ -42,9 +42,9 @@ int main() {
     vector<int> input3 = {};
 
     // 测试示例
-    vector<vector<int>> output1 = solution.zigzagLevelOrder(input1);
-    vector<vector<int>> output2 = solution.zigzagLevelOrder(input2);
-    vector<vector<int>> output3 = solution.zigzagLevelOrder(input3);
+    vector<vector<int>> output1 = solution.levelOrder(input1);
+    vector<vector<int>> output2 = solution.levelOrder(input2);
+    vector<vector<int>> output3 = solution.levelOrder(input3);
 
     // 输出结果
     cout << "[";

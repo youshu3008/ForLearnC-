@@ -42,7 +42,9 @@ struct ListNode {
 // };
 
 // 链表对应位置相加，通过整除的方式得到进位的值，通过求余的方式得到当前位置的值
-
+// 输入：l1 = [2,4,3], l2 = [5,6,4]
+// 输出：[7,0,8]
+// 解释：342 + 465 = 807.
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -50,7 +52,6 @@ public:
        int sum=0;
        while (l1 || l2 || sum)
        {
-        /* code */
         if(l1) sum+=l1->val,l1=l1->next;
         if(l2) sum+=l2->val,l2=l2->next;
         zhizhen->next = new ListNode(sum%10);
@@ -61,21 +62,6 @@ public:
        
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // class Solution {
