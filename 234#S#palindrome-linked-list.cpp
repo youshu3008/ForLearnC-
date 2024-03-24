@@ -17,26 +17,36 @@ struct ListNode {
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        // if(head->next->next == nullptr) return false;
-        vector<int> nums;
-        ListNode* pre = nullptr;
-        ListNode* curr = head;
-        while(curr != nullptr){
-            nums.push_back(curr->val);
-            ListNode* tmp = curr->next;
-            curr->next = pre;
-            pre = curr;
-            curr = tmp;
+        // vector<int> nums;
+        // ListNode* pre = nullptr;
+        // ListNode* curr = head;
+        // while(curr != nullptr){
+        //     nums.push_back(curr->val);
+        //     ListNode* tmp = curr->next;
+        //     curr->next = pre;
+        //     pre = curr;
+        //     curr = tmp;
+        // }
+        // // reverse(nums.begin(),nums.end());
+        // for(int num : nums){
+        //     if(pre != nullptr && num == pre->val ){
+        //         pre = pre->next;
+        //     }else{return false;}
+        // }
+        // return true;
+        vector<int> nums,nums_rev;
+        while (head != nullptr)
+        {
+            nums.push_back(head->val);
+            nums_rev.push_back(head->val);
+            head = head->next;
         }
-        // reverse(nums.begin(),nums.end());
+        reverse(nums_rev.begin(),nums_rev.end());
+        int i = 0;
         for(int num : nums){
-            if(pre != nullptr && num == pre->val ){
-                pre = pre->next;
-            }else{return false;}
+            if(num != nums_rev[i++]) {return false;}
         }
         return true;
-        
-        
     }
 };
 

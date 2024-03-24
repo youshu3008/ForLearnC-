@@ -18,6 +18,10 @@ class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> ans;
+        /*
+        输入：root = [3,9,20,null,null,15,7]
+        输出：[[3],[20,9],[15,7]]              
+        */
         queue<TreeNode*> q;
         if (root) q.push(root);
         bool rev = false;
@@ -44,9 +48,8 @@ int main() {
      Solution solution;
 
     // 创建字符串向量
-    TreeNode* input1 = new TreeNode(3,
-        new TreeNode(9),
-        new TreeNode(20, new TreeNode(15), new TreeNode(7)));  // [[3],[9,20],[15,7]]
+    TreeNode* input1 = new TreeNode(3,new TreeNode(9),new TreeNode(20, new TreeNode(15), new TreeNode(7)));  
+    // [[3],[9,20],[15,7]]
     TreeNode* input2 = new TreeNode(1);
     TreeNode* input3 = nullptr;
 
