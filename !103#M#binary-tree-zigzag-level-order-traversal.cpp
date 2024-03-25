@@ -22,6 +22,7 @@ public:
         输入：root = [3,9,20,null,null,15,7]
         输出：[[3],[20,9],[15,7]]              
         */
+       
         queue<TreeNode*> q;
         if (root) q.push(root);
         bool rev = false;
