@@ -15,22 +15,66 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        this->preorder = preorder;
-        for(int i = 0; i < inorder.size(); i++)
-            dic[inorder[i]] = i;
-        return recur(0, 0, inorder.size() - 1);
+         if (inorder.size() == 0 || preorder.size() == 0) return NULL;
+         return help(preorder, inorder);
     }
-private:
-    vector<int> preorder;
-    unordered_map<int, int> dic;
-    TreeNode* recur(int root, int left, int right) { 
-        // root:当前递归的子树在先序遍历根节点的索引位置 left:中序遍历子树左边界 right:中序遍历子树右边界
-        if (left > right) return nullptr;                        // 递归终止
-        TreeNode* node = new TreeNode(preorder[root]);          // 建立根节点
-        int i = dic[preorder[root]];                            // 根据前序遍历得到的节点 寻找对应在中序遍历中的位置；划分根节点、左子树、右子树
-        node->left = recur(root + 1, left, i - 1);              // 开启左子树递归
-        node->right = recur(root + i - left + 1, i + 1, right); // 开启右子树递归
-        return node;                                            // 回溯返回根节点
+    TreeNode* help(vector<int>& preorder, vector<int>& inorder) {
+        if (preorder.size() == 0) return NULL;
+        int rootValue = preorder[0];
+        TreeNode* root = new TreeNode(rootValue);
+        int delimiterIndex = 0;
+        for(delimiterIndex = 0; delimiterIndex < inorder.size(); delimiterIndex++){
+            if(inorder[delimiterIndex] == rootValue) break;
+        }
+        vector<int> leftinorder(inorder.begin(),inorder.begin() + delimiterIndex);
+        vector<int> rightinorder(inorder.begin() + delimiterIndex + 1, inorder.end());
+
+        vector<int> leftpreorder(preorder.begin() + 1,preorder.begin() + 1 + leftinorder.size());
+        vector<int> rightpreorder(preorder.begin() + 1 + leftinorder.size(), preorder.end());
+        root->left = help(leftpreorder,leftinorder);
+        root->right = help(rightpreorder,rightinorder);
+        return root;
+    }
+
+
+    // 后序和中序遍历
+    TreeNode* traversal (vector<int>& inorder, vector<int>& postorder) {
+    // 第一步
+    if (postorder.size() == 0) return NULL;
+
+    // 第二步：后序遍历数组最后一个元素，就是当前的中间节点
+    int rootValue = postorder[postorder.size() - 1];
+    TreeNode* root = new TreeNode(rootValue);
+
+    // 叶子节点
+    if (postorder.size() == 1) return root;
+
+    // 第三步：找切割点
+    int delimiterIndex;
+    for (delimiterIndex = 0; delimiterIndex < inorder.size(); delimiterIndex++) {
+        if (inorder[delimiterIndex] == rootValue) break;
+    }
+
+    // 第四步：切割中序数组，得到 中序左数组和中序右数组
+    // 左闭右开区间：[0, delimiterIndex)
+    vector<int> leftInorder(inorder.begin(), inorder.begin() + delimiterIndex);
+    // 第五步：切割后序数组，得到 后序左数组和后序右数组
+    // [delimiterIndex + 1, end)
+    vector<int> rightInorder(inorder.begin() + delimiterIndex + 1, inorder.end() );
+
+    // postorder 舍弃末尾元素，因为这个元素就是中间节点，已经用过了
+    postorder.resize(postorder.size() - 1);
+
+    // 左闭右开，注意这里使用了左中序数组大小作为切割点：[0, leftInorder.size)
+    vector<int> leftPostorder(postorder.begin(), postorder.begin() + leftInorder.size());
+    // [leftInorder.size(), end)
+    vector<int> rightPostorder(postorder.begin() + leftInorder.size(), postorder.end());
+
+    // 第六步
+    root->left = traversal(leftInorder, leftPostorder);
+    root->right = traversal(rightInorder, rightPostorder);
+
+    return root;
     }
 };
 
@@ -62,3 +106,7 @@ int main() {
 
     return 0;
 }
+
+
+
+
