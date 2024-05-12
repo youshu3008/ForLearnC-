@@ -5,7 +5,7 @@
 #include <unordered_set>
 
 using namespace std;
-/*
+
 // Definition for a Node.
 class Node {
 public:
@@ -23,7 +23,6 @@ public:
         children = _children;
     }
 };
-*/
 
 class Solution {
 public:
@@ -37,9 +36,7 @@ int main() {
      Solution solution;
 
     // 创建字符串向量
-    vector<int> input1 = {3,9,20,null,null,15,7};
-    vector<int> input2 = {1};
-    vector<int> input3 = {};
+    vector<int> input1 = {1,'null',3,2,4,'null',5,6};
 
     // 测试示例
     vector<vector<int>> output1 = solution.levelOrder(input1);
