@@ -1,10 +1,15 @@
-#include <iostream>
+// #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
 
 using namespace std;
 class Solution {
+private:
+    static bool cmp_sort(const vector<int>& a, const vector<int>& b) {
+        return a[0] < b[0];
+    }
+
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
     // 按照区间起始位置进行排序
@@ -25,10 +30,7 @@ public:
 
     return mergedIntervals;
 }
-private:
-    static bool cmp_sort(const vector<int>& a, const vector<int>& b) {
-        return a[0] < b[0];
-    }
+
 };
 
 
