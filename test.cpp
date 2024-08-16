@@ -1,49 +1,31 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
-#include <functional>
+#include <stdio.h>
+#include <assert.h>
 
-int main()
-{
-    std::vector<int> v1 = {10, 20, 30, 40, 50};
-    std::vector<int> v2 = { 1, 2, 3, 4, 5 };
+using namespace std;
 
-    std::vector<int> result(5);
-    std::transform(v1.begin(), v1.end(), v2.begin(), result.begin(), std::multiplies<int>());
+char* strcpy(char *dst, const char *src) {
+    assert(dst != nullptr && src != nullptr);
+    char* result = dst;
+    cout << (*dst++ = *src++) << endl;
+    while((*dst++ = *src++) != '\0');
+    return result;
+}
 
-    for (int i : result) {
-        std::cout << i << "\t";
+int main(){
+    const char* src = "hello world";
+    char dst[50];  // 确保dst有足够的空间存储src字符串和空终止符。
+    char* res = strcpy(dst, src);
+
+    // 打印复制的字符串。
+    cout << "复制的字符串: " << dst << endl;
+
+    // 打印复制字符串中的每个字符。
+    for(int i = 0; res[i] != '\0'; ++i){
+        cout << "res[" << i << "]: " << res[i] << endl;
+        cout << "*res= " << *res++ << endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
-
-class Solution {
-public:
-    bool canPartition(vector<int>& nums) {
-        int sum = 0;
-
-        // dp[i]中的i表示背包内总和
-        // 题目中说：每个数组中的元素不会超过 100，数组的大小不会超过 200
-        // 总和不会大于20000，背包最大只需要其中一半，所以10001大小就可以了
-        vector<int> dp(10001, 0);
-        for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-        }
-        // 也可以使用库函数一步求和
-        int sum = accumula4te(nums.begin(), nums.end(), 0);
-        if (sum % 2 == 1) return false;
-        int target = sum / 2;
-
-        // 开始 01背包
-        for(int i = 0; i < nums.size(); i++) {
-            for(int j = target; j >= nums[i]; j--) { // 每一个元素一定是不可重复放入，所以从大到小遍历
-                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
-            }
-        }
-        // 集合中的元素正好可以凑成总和target
-        if (dp[target] == target) return true;
-        return false;
-    }
-};
